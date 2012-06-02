@@ -1,26 +1,18 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Windows.Markup;
-using System.Resources;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-#if SILVERLIGHT
 [assembly: AssemblyTitle("Cocktail.AsyncPack.SL")]
-#else
-[assembly: AssemblyTitle("Cocktail.AsyncPack")]
-#endif
-[assembly: AssemblyDescription("Cocktail Async Pack for Visual Studio 2012")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("IdeaBlade")]
-[assembly: AssemblyProduct("Cocktail")]
-[assembly: AssemblyCopyright("Copyright © IdeaBlade 2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Cocktail.AsyncPack.SL")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: NeutralResourcesLanguageAttribute("en")]
-
-[assembly: XmlnsDefinition("http://cocktail.ideablade.com", "Cocktail")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -28,11 +20,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-#if SILVERLIGHT
-[assembly: Guid("C667B886-4989-45E6-A8AD-235B1EFEBE41")]
-#else
-[assembly: Guid("b9a73b6d-1f1e-46a7-bfef-c44aaaf97511")]
-#endif
+[assembly: Guid("8e41baec-23c8-4601-beb5-cbae9a1c3030")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -41,7 +29,7 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
+// You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
