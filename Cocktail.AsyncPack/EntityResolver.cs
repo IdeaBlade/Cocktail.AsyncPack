@@ -21,13 +21,13 @@ namespace Cocktail
         {
         }
 
-        public static EntityResolver<T> For<T>(T entity) where T : class
+        public static EntityResolver<T> For<T>(T entity)
         {
             return new EntityResolver<T>(entity);
         }
     }
 
-    public class EntityResolver<T> : EntityResolver, IAwaitable<T> where T : class
+    public class EntityResolver<T> : EntityResolver, IAwaitable<T>
     {
         private TaskCompletionSource<T> _tcs;
 

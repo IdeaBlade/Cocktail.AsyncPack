@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cocktail.AsyncPack", "Cocktail.AsyncPack\Cocktail.AsyncPack.csproj", "{F1CCAE3E-ACB5-4AAF-BEAB-709772EF3C78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C9BC03EB-6E94-435A-8A13-7D08FE2AF1EE}"
