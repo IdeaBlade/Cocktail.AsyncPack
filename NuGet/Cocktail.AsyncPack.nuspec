@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Cocktail.AsyncPack</id>
+    <version>0.1.0</version>
+    <authors>Marcel Good</authors>
+    <licenseUrl>http://cocktail.ideablade.com/licensing</licenseUrl>
+    <projectUrl>http://cocktail.ideablade.com/</projectUrl>
+    <description>The "Cocktail Async Pack for Visual Studio 2012" enables Cocktail/DevForce projects targeting .NET Framework 4.0 or Silverlight 5 to use the Async language feature in C# 5 and Visual Basic 11. This pack requires Visual Studio 2012 and will not work with Visual Studio 2010.</description>
+    <copyright>Copyright 2012</copyright>
+    <tags>Cocktail,DevForce,Silverlight,WPF</tags>
+    <dependencies>
+      <dependency id="Microsoft.CompilerServices.AsyncTargetingPack" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Cocktail.AsyncPack\Bin\Release\Cocktail.AsyncPack*.*" target="lib\net40" />
+    <file src="..\Cocktail.AsyncPack\Bin.SL\Release\Cocktail.AsyncPack*.*" target="lib\sl50" />
+    <file src="..\Cocktail.AsyncPack\**\*.cs" target="src\Cocktail" />
+    <file src="..\Cocktail.AsyncPack\**\*.xaml" target="src\Cocktail" />
+  </files>
+</package>
