@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="AwaiterFns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskFns.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
