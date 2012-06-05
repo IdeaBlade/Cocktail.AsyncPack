@@ -41,6 +41,52 @@ namespace Cocktail
         {
             return new TaskOperationResult<T>(task);
         }
+
+        /// <summary>Extension method to process the result of an asynchronous query operation.</summary>
+        /// <param name="task">The task representing the asynchronous operation.</param>
+        /// <param name="onSuccess">A callback to be called if the task completed was successful.</param>
+        /// <param name="onFail">A callback to be called if the task failed.</param>
+        /// <returns>OperationResult encapsulating the provided <see cref="Task"/>.</returns>
+        public static OperationResult OnComplete(this Task task, Action onSuccess, Action<Exception> onFail)
+        {
+            return task.AsOperationResult()
+                .ContinueWith(op =>
+                {
+                    if (op.CompletedSuccessfully)
+                    {
+                        if (onSuccess != null) onSuccess();
+                    }
+
+                    if (op.HasError && onFail != null)
+                    {
+                        op.ContinueOnError();
+                        onFail(op.Error);
+                    }
+                });
+        }
+
+        /// <summary>Extension method to process the result of an asynchronous query operation.</summary>
+        /// <param name="task">The task representing the asynchronous operation.</param>
+        /// <param name="onSuccess">A callback to be called if the task completed was successful.</param>
+        /// <param name="onFail">A callback to be called if the task failed.</param>
+        /// <returns>OperationResult encapsulating the provided <see cref="Task"/>.</returns>
+        public static OperationResult<T> OnComplete<T>(this Task<T> task, Action<T> onSuccess, Action<Exception> onFail)
+        {
+            return task.AsOperationResult()
+                .ContinueWith(op =>
+                {
+                    if (op.CompletedSuccessfully)
+                    {
+                        if (onSuccess != null) onSuccess(op.Result);
+                    }
+
+                    if (op.HasError && onFail != null)
+                    {
+                        op.ContinueOnError();
+                        onFail(op.Error);
+                    }
+                });
+        }
     }
 
     internal class TaskOperationResult : OperationResult
@@ -80,7 +126,6 @@ namespace Cocktail
                 else
                     context.Post(delegate { OnCompleted(t); }, null);
             });
-                //Execute.OnUIThread(() => OnCompleted(t)));
         }
 
         #region INotifyCompleted Members
