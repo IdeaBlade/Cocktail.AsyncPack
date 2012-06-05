@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Cocktail.AsyncPack</id>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <authors>Marcel Good</authors>
     <licenseUrl>http://cocktail.ideablade.com/licensing</licenseUrl>
     <projectUrl>http://cocktail.ideablade.com/</projectUrl>
@@ -11,6 +11,7 @@
     <tags>Cocktail,DevForce,Silverlight,WPF</tags>
     <dependencies>
       <dependency id="Microsoft.CompilerServices.AsyncTargetingPack" version="1.0.0" />
+      <dependency id="CocktailCTP" version="0.6.2" />
     </dependencies>
   </metadata>
   <files>
