@@ -8,3 +8,6 @@ packages
 *.DotSettings*
 *.user
 
+log*
+ClientBin*
+
