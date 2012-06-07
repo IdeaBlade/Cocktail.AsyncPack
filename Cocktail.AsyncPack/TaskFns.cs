@@ -18,7 +18,7 @@ using IdeaBlade.EntityModel;
 namespace Cocktail
 {
     /// <summary>
-    /// A collection of extension methods to convert <see cref="Task"/> and <see cref="Task{T}"/> to <see cref="OperationResult"/> and <see cref="OperationResult{T}"/>.
+    /// A collection of <see cref="Task"/> and <see cref="Task{T}"/> extension methods.
     /// </summary>
     public static class TaskFns
     {
@@ -84,6 +84,26 @@ namespace Cocktail
                     {
                         op.ContinueOnError();
                         onFail(op.Error);
+                    }
+                });
+        }
+
+        /// <summary>
+        /// Schedules an error handler to be called if the current task fails.
+        /// </summary>
+        /// <param name="task">Current task.</param>
+        /// <param name="errorHandler">Action to be called if current tasks fails.</param>
+        public static void HandleError(this Task task, Action<Exception> errorHandler)
+        {
+            var context = SynchronizationContext.Current;
+            task.ContinueWith(t =>
+                {
+                    if (t.IsFaulted)
+                    {
+                        if (context == null)
+                            errorHandler(t.Exception);
+                        else
+                            context.Post(delegate { errorHandler(t.Exception); }, null);
                     }
                 });
         }
