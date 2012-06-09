@@ -97,23 +97,16 @@ namespace TempHire.ViewModels.StaffingResource
 
         private async void StartCore(Guid staffingResourceId)
         {
-            try
+            // Load the list of states once first, before we continue with starting the ViewModel
+            // This is to ensure that the ComboBox binding doesn't goof up if the ItemSource is empty
+            // The list of states is preloaded into each EntityManager cache, so this should be fast
+            if (States == null)
             {
-                // Load the list of states once first, before we continue with starting the ViewModel
-                // This is to ensure that the ComboBox binding doesn't goof up if the ItemSource is empty
-                // The list of states is preloaded into each EntityManager cache, so this should be fast
-                if (States == null)
-                {
-                    var unitOfWork = _unitOfWorkManager.Get(staffingResourceId);
-                    States = new BindableCollection<State>(await unitOfWork.States.FindAsync(orderBy: q => q.OrderBy(s => s.Name)));
-                }
+                var unitOfWork = _unitOfWorkManager.Get(staffingResourceId);
+                States = new BindableCollection<State>(await unitOfWork.States.FindAsync(orderBy: q => q.OrderBy(s => s.Name)));
+            }
 
-                base.Start(staffingResourceId);
-            }
-            catch (Exception e)
-            {
-                ErrorHandler.HandleError(e);
-            }
+            base.Start(staffingResourceId);
         }
 
         private void AddressesCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -145,8 +138,7 @@ namespace TempHire.ViewModels.StaffingResource
             var addressTypes = UnitOfWork.AddressTypes;
             var addressTypeSelector = _addressTypeSelectorFactory.CreatePart()
                 .Start("Select type:", "DisplayName",
-                       () => addressTypes.FindAsync(orderBy: q => q.OrderBy(t => t.DisplayName),
-                                                    onFail: ErrorHandler.HandleError));
+                       await addressTypes.FindAsync(orderBy: q => q.OrderBy(t => t.DisplayName)));
 
             await _dialogManager.ShowDialogAsync(addressTypeSelector, DialogButtons.OkCancel);
 

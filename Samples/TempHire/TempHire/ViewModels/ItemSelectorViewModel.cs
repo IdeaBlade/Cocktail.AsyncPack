@@ -69,18 +69,11 @@ namespace TempHire.ViewModels
             }
         }
 
-        public ItemSelectorViewModel Start<T>(string label, string displayMemberPath,
-                                              Func<OperationResult<IEnumerable<T>>> items)
+        public ItemSelectorViewModel Start<T>(string label, string displayMemberPath, IEnumerable<T> items)
         {
             Label = label;
             DisplayMemberPath = displayMemberPath;
-
-            items().ContinueWith(op =>
-                                     {
-                                         if (op.CompletedSuccessfully)
-                                             Items = new BindableCollection<object>(op.Result.Cast<object>());
-                                     });
-
+            Items = new BindableCollection<object>(items.Cast<object>());
             return this;
         }
     }

@@ -80,8 +80,7 @@ namespace TempHire.ViewModels
         {
             var mainGroup = new ToolbarGroup(0);
             _workspaces.OrderBy(w => w.Sequence).ForEach(
-                w => mainGroup.Add(new ToolbarAction(this, w.DisplayName, 
-                    () => NavigateToWorkspace(w).HandleError(_errorHandler.HandleError))));
+                w => mainGroup.Add(new ToolbarAction(this, w.DisplayName, async () => await NavigateToWorkspace(w))));
 
             var logoutGroup = new ToolbarGroup(100) { new ToolbarAction(this, "Logout", Logout) };
 
@@ -127,12 +126,12 @@ namespace TempHire.ViewModels
 #endif
         }
 
-        protected override void OnViewLoaded(object view)
+        protected override async void OnViewLoaded(object view)
         {
             base.OnViewLoaded(view);
 
             // Launch login dialog
-            Login().HandleError(_errorHandler.HandleError);
+            await Login();
         }
 
         private IWorkspace GetHomeScreen()
