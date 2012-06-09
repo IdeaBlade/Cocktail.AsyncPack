@@ -75,19 +75,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro">
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\Caliburn.Micro.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.AsyncPack.SL">
-      <HintPath>..\packages\Cocktail.AsyncPack.0.3.0\lib\sl50\Cocktail.AsyncPack.SL.dll</HintPath>
+      <HintPath>..\packages\Cocktail.AsyncPack.0.4.0\lib\sl50\Cocktail.AsyncPack.SL.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.Contrib.SL">
-      <HintPath>..\packages\CocktailContrib.1.0.5\lib\sl50\Cocktail.Contrib.SL.dll</HintPath>
+      <HintPath>..\packages\CocktailContrib.1.0.6\lib\sl50\Cocktail.Contrib.SL.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.SL">
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\Cocktail.SL.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Cocktail.SL.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.Utils.SL">
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.EntityModel.SL">
     </Reference>
@@ -131,7 +131,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\System.Windows.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

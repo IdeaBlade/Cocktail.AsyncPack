@@ -53,10 +53,10 @@
   <ItemGroup>
     <Reference Include="Caliburn.Micro">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\Caliburn.Micro.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.SL">
-      <HintPath>..\packages\CocktailCTP.0.6.2\lib\sl50\Cocktail.SL.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Cocktail.SL.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.Core.SL" />
     <Reference Include="IdeaBlade.EntityModel.SL" />
