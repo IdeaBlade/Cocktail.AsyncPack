@@ -17,7 +17,7 @@ using Common.Errors;
 using Common.Toolbar;
 using Common.Workspace;
 using DomainModel;
-using DomainServices.Repositories;
+using DomainServices;
 using DomainServices.SampleData;
 using TempHire.Authentication;
 using TempHire.ViewModels;
@@ -144,7 +144,7 @@ namespace TempHire.DesignTimeSupport
         {
             get
             {
-                return new StaffingResourceSearchViewModel(new StaffingResourceSearchRepository(EntityManagerProvider),
+                return new StaffingResourceSearchViewModel(new DomainUnitOfWork(EntityManagerProvider), 
                                                            DesignTimeErrorHandler.Instance).Start();
             }
         }
@@ -156,7 +156,7 @@ namespace TempHire.DesignTimeSupport
                 var rm = new DesignTimeStaffingResourceUnitOfWorkManager(EntityManagerProvider);
                 return
                     new StaffingResourceManagementViewModel(
-                        new StaffingResourceSearchViewModel(new StaffingResourceSearchRepository(EntityManagerProvider),
+                        new StaffingResourceSearchViewModel(new DomainUnitOfWork(EntityManagerProvider), 
                                                             DesignTimeErrorHandler.Instance), null, null, rm,
                         DesignTimeErrorHandler.Instance, DesignTimeDialogManager.Instance, null);
             }
