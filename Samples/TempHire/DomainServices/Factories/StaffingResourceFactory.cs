@@ -10,10 +10,8 @@
 //   http://cocktail.ideablade.com/licensing
 // ====================================================================================================================
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cocktail;
 using Cocktail.Contrib.UnitOfWork;
 using DomainModel;
@@ -21,50 +19,38 @@ using IdeaBlade.EntityModel;
 
 namespace DomainServices.Factories
 {
-    public class StaffingResourceFactory : IFactory<StaffingResource>
+    public class StaffingResourceFactory : Factory<StaffingResource>
     {
         private readonly IRepository<AddressType> _addressTypes;
-        private readonly IEntityManagerProvider<TempHireEntities> _entityManagerProvider;
         private readonly IRepository<PhoneNumberType> _phoneNumberTypes;
 
         public StaffingResourceFactory(IEntityManagerProvider<TempHireEntities> entityManagerProvider,
                                        IRepository<AddressType> addressTypes,
                                        IRepository<PhoneNumberType> phoneNumberTypes)
+            : base(entityManagerProvider)
         {
-            _entityManagerProvider = entityManagerProvider;
             _addressTypes = addressTypes;
             _phoneNumberTypes = phoneNumberTypes;
         }
 
-        private TempHireEntities EntityManager
-        {
-            get { return _entityManagerProvider.Manager; }
-        }
-
-        #region IFactory<StaffingResource> Members
-
-        public OperationResult<StaffingResource> CreateAsync(Action<StaffingResource> onSuccess = null,
-                                                             Action<Exception> onFail = null)
-        {
-            return CreateAsyncCore().OnComplete(onSuccess, onFail);
-        }
-
-        #endregion
-
-        private async Task<StaffingResource> CreateAsyncCore()
+        protected override IEnumerable<INotifyCompleted> CreateAsyncCore()
         {
             var staffingResource = StaffingResource.Create();
             EntityManager.AddEntity(staffingResource);
 
-            var addressType = (await _addressTypes.FindAsync(t => t.Default)).First();
+            OperationResult<IEnumerable<AddressType>> op1;
+            yield return op1 = _addressTypes.FindAsync(t => t.Default);
+            var addressType = op1.Result.First();
             staffingResource.AddAddress(addressType);
             staffingResource.PrimaryAddress = staffingResource.Addresses.First();
 
-            var phoneType = (await _phoneNumberTypes.FindAsync(t => t.Default)).First();
+            OperationResult<IEnumerable<PhoneNumberType>> op2;
+            yield return op2 = _phoneNumberTypes.FindAsync(t => t.Default);
+            var phoneType = op2.Result.First();
             staffingResource.AddPhoneNumber(phoneType);
             staffingResource.PrimaryPhoneNumber = staffingResource.PhoneNumbers.First();
 
-            return staffingResource;
+            yield return Coroutine.Return(staffingResource);
         }
     }
 }

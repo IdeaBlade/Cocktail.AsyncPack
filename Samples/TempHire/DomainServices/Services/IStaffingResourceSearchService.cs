@@ -12,17 +12,15 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Cocktail;
 using DomainModel.Projections;
+using IdeaBlade.Core;
 
-namespace DomainServices.Repositories
+namespace DomainServices.Services
 {
-    public interface IStaffingResourceSearchRepository
+    public interface IStaffingResourceSearchService : IHideObjectMembers
     {
-        OperationResult<IEnumerable<StaffingResourceListItem>> FindStaffingResourcesAsync(
-            string searchText,
-            Func<IQueryable<StaffingResourceListItem>, IOrderedQueryable<StaffingResourceListItem>> orderBy = null,
-            Action<IEnumerable<StaffingResourceListItem>> onSuccess = null, Action<Exception> onFail = null);
+        OperationResult<IEnumerable<StaffingResourceListItem>> Simple(
+            string text, Action<IEnumerable<StaffingResourceListItem>> onSuccess = null, Action<Exception> onFail = null);
     }
 }

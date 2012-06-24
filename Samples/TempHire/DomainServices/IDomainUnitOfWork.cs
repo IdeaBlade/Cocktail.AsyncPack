@@ -12,6 +12,7 @@
 
 using Cocktail.Contrib.UnitOfWork;
 using DomainModel;
+using DomainServices.Services;
 
 namespace DomainServices
 {
@@ -19,13 +20,18 @@ namespace DomainServices
     {
         bool HasEntity(object entity);
 
+        // Factories
         IFactory<StaffingResource> StaffingResourceFactory { get; }
 
+        // Repositories
         IRepository<AddressType> AddressTypes { get; }
         IRepository<State> States { get; }
         IRepository<PhoneNumberType> PhoneNumberTypes { get; }
         IRepository<RateType> RateTypes { get; }
         IRepository<StaffingResource> StaffingResources { get; }
+
+        // Services
+        IStaffingResourceSearchService Search { get; }
 
         void Clear();
     }
