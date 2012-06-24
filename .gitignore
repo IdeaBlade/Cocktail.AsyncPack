@@ -2,7 +2,8 @@
 _ReSharper*
 *.suo
 *.cache
-Bin*
+bin.*
+bin
 obj*
 packages
 *.DotSettings*
