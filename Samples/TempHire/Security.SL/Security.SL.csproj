@@ -71,7 +71,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cocktail.Utils.SL">
-      <HintPath>..\packages\CocktailCTP.0.6.3\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
+      <HintPath>..\packages\CocktailCTP.0.7.0\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.Aop.SL">
       <SpecificVersion>False</SpecificVersion>
