@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Cocktail.AsyncPack</id>
-    <version>0.5.0</version>
+    <id>Cocktail.AsyncPack.Silverlight</id>
+    <title>Cocktail Async Pack for Visual Studio 2012 (Silverlight)</title>
+    <version>1.0.0</version>
     <authors>Marcel Good</authors>
     <licenseUrl>http://cocktail.ideablade.com/licensing</licenseUrl>
     <projectUrl>http://cocktail.ideablade.com/</projectUrl>
@@ -11,11 +12,10 @@
     <tags>MVVM Silverlight WPF SL4 SL5 SL Convention Screen Coroutine Model-View-ViewModel Presentation UI ViewModel Caliburn.Micro DevForce ORM Entity Data LOB Enterprise Asynchronous</tags>
     <dependencies>
       <dependency id="Microsoft.CompilerServices.AsyncTargetingPack" version="1.0.0" />
-      <dependency id="CocktailCTP" version="0.7.0" />
+      <dependency id="Cocktail.Silverlight" version="1.0.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\Cocktail.AsyncPack\Bin\Release\Cocktail.AsyncPack*.*" target="lib\net40" />
     <file src="..\Cocktail.AsyncPack\Bin.SL\Release\Cocktail.AsyncPack*.*" target="lib\sl50" />
     <file src="..\Cocktail.AsyncPack\**\*.cs" target="src\Cocktail" />
     <file src="..\Cocktail.AsyncPack\**\*.xaml" target="src\Cocktail" />
