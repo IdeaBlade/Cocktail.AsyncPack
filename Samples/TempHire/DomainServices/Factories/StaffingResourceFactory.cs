@@ -10,8 +10,10 @@
 //   http://cocktail.ideablade.com/licensing
 // ====================================================================================================================
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cocktail;
 using DomainModel;
 using IdeaBlade.EntityModel;
@@ -32,24 +34,25 @@ namespace DomainServices.Factories
             _phoneNumberTypes = phoneNumberTypes;
         }
 
-        protected override IEnumerable<INotifyCompleted> CreateAsyncCore()
+        public override OperationResult<StaffingResource> CreateAsync(Action<StaffingResource> onSuccess = null, Action<Exception> onFail = null)
+        {
+            return CreateAsyncCore().OnComplete(onSuccess, onFail);
+        }
+
+        private async Task<StaffingResource> CreateAsyncCore()
         {
             var staffingResource = StaffingResource.Create();
             EntityManager.AddEntity(staffingResource);
 
-            OperationResult<IEnumerable<AddressType>> op1;
-            yield return op1 = _addressTypes.FindAsync(t => t.Default);
-            var addressType = op1.Result.First();
+            var addressType = (await _addressTypes.FindAsync(t => t.Default)).First();
             staffingResource.AddAddress(addressType);
             staffingResource.PrimaryAddress = staffingResource.Addresses.First();
 
-            OperationResult<IEnumerable<PhoneNumberType>> op2;
-            yield return op2 = _phoneNumberTypes.FindAsync(t => t.Default);
-            var phoneType = op2.Result.First();
+            var phoneType = (await _phoneNumberTypes.FindAsync(t => t.Default)).First();
             staffingResource.AddPhoneNumber(phoneType);
             staffingResource.PrimaryPhoneNumber = staffingResource.PhoneNumbers.First();
 
-            yield return Coroutine.Return(staffingResource);
+            return staffingResource;
         }
     }
 }
