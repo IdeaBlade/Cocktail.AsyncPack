@@ -103,7 +103,7 @@ namespace TempHire.ViewModels.StaffingResource
             if (States == null)
             {
                 var unitOfWork = _unitOfWorkManager.Get(staffingResourceId);
-                States = new BindableCollection<State>(await unitOfWork.States.FindAsync(orderBy: q => q.OrderBy(s => s.Name)));
+                States = new BindableCollection<State>(await unitOfWork.States.AllAsync(q => q.OrderBy(s => s.Name)));
             }
 
             base.Start(staffingResourceId);
@@ -138,7 +138,7 @@ namespace TempHire.ViewModels.StaffingResource
             var addressTypes = UnitOfWork.AddressTypes;
             var addressTypeSelector = _addressTypeSelectorFactory.CreatePart()
                 .Start("Select type:", "DisplayName",
-                       await addressTypes.FindAsync(orderBy: q => q.OrderBy(t => t.DisplayName)));
+                       await addressTypes.AllAsync(q => q.OrderBy(t => t.DisplayName)));
 
             await _dialogManager.ShowDialogAsync(addressTypeSelector, DialogButtons.OkCancel);
 
