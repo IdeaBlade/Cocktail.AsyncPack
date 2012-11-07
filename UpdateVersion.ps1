@@ -27,10 +27,10 @@ else
         $nuspec.package.metadata.version = $version
         
         # Update dependencies
-        #foreach ($d in $nuspec.package.metadata.dependencies.dependency | ? { $_.id -match "IdeaBlade.Cocktail" -and $_.version})
-        #{
-        #    $d.version = "[$version]"
-        #}
+        foreach ($d in $nuspec.package.metadata.dependencies.dependency | ? { $_.id -match "Cocktail." -and $_.version})
+        {
+            $d.version = "[$version]"
+        }
         
         $nuspec.Save($file.FullName)
     }
