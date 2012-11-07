@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>Cocktail.AsyncPack.Silverlight</id>
     <title>Cocktail Async Pack for Visual Studio 2012 (Silverlight)</title>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <authors>Marcel Good</authors>
     <licenseUrl>http://cocktail.ideablade.com/licensing</licenseUrl>
     <projectUrl>http://cocktail.ideablade.com/</projectUrl>
