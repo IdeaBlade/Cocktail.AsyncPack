@@ -22,6 +22,7 @@
     <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\TempHire\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <DontImportPostSharp>True</DontImportPostSharp>
   </PropertyGroup>
   <!-- This property group is only here to support building this project using the 
        MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
@@ -68,13 +69,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro">
-      <HintPath>..\packages\Cocktail.Silverlight.1.0.1\lib\sl50\Caliburn.Micro.dll</HintPath>
+      <HintPath>..\packages\Cocktail.Silverlight.1.0.3\lib\sl50\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.SL">
-      <HintPath>..\packages\Cocktail.Silverlight.1.0.1\lib\sl50\Cocktail.SL.dll</HintPath>
+      <HintPath>..\packages\Cocktail.Silverlight.1.0.3\lib\sl50\Cocktail.SL.dll</HintPath>
     </Reference>
     <Reference Include="Cocktail.Utils.SL">
-      <HintPath>..\packages\Cocktail.Silverlight.1.0.1\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
+      <HintPath>..\packages\Cocktail.Silverlight.1.0.3\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.Aop.SL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,7 +91,7 @@
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="PostSharp.SL">
-      <HintPath>$(ProgramFiles)\PostSharp 2.1\Reference Assemblies\Silverlight 3.0\PostSharp.SL.dll</HintPath>
+      <HintPath>..\packages\PostSharp.2.1.7.22\lib\sl3\PostSharp.SL.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -101,7 +102,7 @@
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\packages\Cocktail.Silverlight.1.0.1\lib\sl50\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\Cocktail.Silverlight.1.0.3\lib\sl50\System.Windows.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +149,7 @@
       <Link>WorkExperienceItem.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiresPostSharp.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\DomainModel\TempHireEntities.ibmmx">
@@ -166,6 +168,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\PostSharp.2.1.7.22\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.2.1.7.22\tools\PostSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
