@@ -9,7 +9,7 @@ The pack is available via NuGet. The NuGet package automatically downloads and i
 
 The NuGet package is available at the following location:
  
-[http://www.nuget.org/packages/Cocktail.AsyncPack](http://www.nuget.org/packages/Cocktail.AsyncPack)
+[http://nuget.org/packages?q=Cocktail.AsyncPack](http://nuget.org/packages?q=Cocktail.AsyncPack)
  
 With the “Cocktail Async Pack” added to a project, all Cocktail and DevForce asynchronous operations become awaitable as in the following example.
 
