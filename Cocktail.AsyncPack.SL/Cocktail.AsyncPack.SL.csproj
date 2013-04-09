@@ -19,8 +19,8 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <BaseOutputPath>Bin.SL</BaseOutputPath>
-    <IntermediateOutputPath>obj.SL\$(Configuration)</IntermediateOutputPath>
+    <BaseOutputPath>Bin</BaseOutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)</IntermediateOutputPath>
     <OutputPath>$(BaseOutputPath)\$(Configuration)</OutputPath>
     <DocumentationFile>$(BaseOutputPath)\$(Configuration)\Cocktail.AsyncPack.SL.xml</DocumentationFile>
     <SkipPostSharp>True</SkipPostSharp>
@@ -51,17 +51,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro, Version=1.5.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Caliburn.Micro.1.5.0\lib\sl5\Caliburn.Micro.dll</HintPath>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\sl5\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Cocktail.SL, Version=1.1.2.0, Culture=neutral, PublicKeyToken=7d8c7326b555a04a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cocktail.Silverlight.1.1.2\lib\sl50\Cocktail.SL.dll</HintPath>
+    <Reference Include="Cocktail.SL">
+      <HintPath>..\packages\Cocktail.Silverlight.1.1.3\lib\sl50\Cocktail.SL.dll</HintPath>
     </Reference>
-    <Reference Include="Cocktail.Utils.SL, Version=1.1.2.0, Culture=neutral, PublicKeyToken=7d8c7326b555a04a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Cocktail.Silverlight.1.1.2\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
+    <Reference Include="Cocktail.Utils.SL">
+      <HintPath>..\packages\Cocktail.Silverlight.1.1.3\lib\sl50\Cocktail.Utils.SL.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.Core.SL" />
     <Reference Include="IdeaBlade.EntityModel.SL" />
@@ -81,16 +78,22 @@
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Caliburn.Micro.1.5.0\lib\sl5\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\Caliburn.Micro.1.5.1\lib\sl5\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Net" />
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AwaiterFns.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskFns.cs" />
+    <Compile Include="..\Cocktail.AsyncPack\AwaiterFns.cs">
+      <Link>AwaiterFns.cs</Link>
+    </Compile>
+    <Compile Include="..\Cocktail.AsyncPack\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Cocktail.AsyncPack\TaskFns.cs">
+      <Link>TaskFns.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
