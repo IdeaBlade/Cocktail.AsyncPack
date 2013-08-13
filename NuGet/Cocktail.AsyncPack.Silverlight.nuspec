@@ -3,7 +3,7 @@
   <metadata>
     <id>Cocktail.AsyncPack.Silverlight</id>
     <title>Cocktail Async Pack for Visual Studio 2012 (Silverlight)</title>
-    <version>1.1.4</version>
+    <version>1.1.5</version>
     <authors>Marcel Good</authors>
     <licenseUrl>http://cocktail.ideablade.com/licensing</licenseUrl>
     <projectUrl>http://cocktail.ideablade.com/</projectUrl>
@@ -12,7 +12,7 @@
     <tags>MVVM Silverlight WPF SL4 SL5 SL Convention Screen Coroutine Model-View-ViewModel Presentation UI ViewModel Caliburn.Micro DevForce ORM Entity Data LOB Enterprise Asynchronous</tags>
     <dependencies>
       <dependency id="Microsoft.CompilerServices.AsyncTargetingPack" version="1.0.0" />
-      <dependency id="Cocktail.Silverlight" version="[1.1.4]" />
+      <dependency id="Cocktail.Silverlight" version="[1.1.5]" />
     </dependencies>
   </metadata>
   <files>
