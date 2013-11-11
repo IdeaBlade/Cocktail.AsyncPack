@@ -39,11 +39,13 @@
     <Reference Include="Caliburn.Micro">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net40\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Cocktail">
-      <HintPath>..\packages\Cocktail.NET.1.1.5\lib\net40\Cocktail.dll</HintPath>
+    <Reference Include="Cocktail, Version=1.1.6.0, Culture=neutral, PublicKeyToken=7d8c7326b555a04a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cocktail.NET.1.1.6\lib\net40\Cocktail.dll</HintPath>
     </Reference>
-    <Reference Include="Cocktail.Utils">
-      <HintPath>..\packages\Cocktail.NET.1.1.5\lib\net40\Cocktail.Utils.dll</HintPath>
+    <Reference Include="Cocktail.Utils, Version=1.1.6.0, Culture=neutral, PublicKeyToken=7d8c7326b555a04a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cocktail.NET.1.1.6\lib\net40\Cocktail.Utils.dll</HintPath>
     </Reference>
     <Reference Include="IdeaBlade.EntityModel" />
     <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4">
